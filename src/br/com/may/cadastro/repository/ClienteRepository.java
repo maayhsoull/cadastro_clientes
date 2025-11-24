@@ -17,7 +17,7 @@ public class ClienteRepository {
         Path arquivo = Path.of("C:\\Users\\25203738\\ds1m\\clientes\\clientes.csv");
 
         try { // tentar executar o comando
-            Files.writeString(arquivo, "Senai Jandira",StandardOpenOption.APPEND);
+            Files.writeString(arquivo, "Senai Jandira\n",StandardOpenOption.APPEND);
         } catch (IOException e) { //se dar erro vou pegar esse erro e tratar
             System.out.println("Erro ao abrir o arquivo");
             System.out.println(e.getMessage()); // informa que foi pego um erro
