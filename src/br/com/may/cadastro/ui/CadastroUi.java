@@ -1,6 +1,7 @@
 package br.com.may.cadastro.ui;
 
 import br.com.may.cadastro.model.Cliente;
+import br.com.may.cadastro.repository.ClienteRepository;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -75,6 +76,11 @@ public class CadastroUi {
         System.out.print("E-mail do cliente: ");
         cliente.email = sc.nextLine();
 
+        System.out.print("Salario do cliente: ");
+        cliente.salario = sc.nextDouble();
+        sc.nextLine(); // gambiarra do scanner para limpar o cachse, sem isso ele não entende que a proxima linha é um string. Serve para zerar e continuar o codigo
+
+
         System.out.print("Data de nascimento do cliente: ");
         String dataNascimento = sc.nextLine();
 
@@ -88,14 +94,8 @@ public class CadastroUi {
                 Integer.parseInt(dataNascimentoSplit[0])
         );
 
-        cliente.exibirCliente();
-
-//        System.out.println("Salario do cliente: ");
-//        cliente.salario = sc.nextDouble();
-
-
-
-
+        ClienteRepository clienteRepository = new ClienteRepository();
+        clienteRepository.cadastrar();
     }
 
 }
